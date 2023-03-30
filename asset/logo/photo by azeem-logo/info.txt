@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: DancingScript-Regular
+font link: https://fonts.google.com/specimen/Dancing+Script
+font author: Impallari Type
+font author site: www.impallari.com
+
+
+icon designer: Timur Carpeev
+icon designer link: /Timur
+        
+{"bg":"#81AAD9","icon":"#F2CCB1","font":"#ffffff","slogan":"#ffffff"}
+      
