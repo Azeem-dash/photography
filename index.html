@@ -76,6 +76,7 @@
     <div class="w3-top">
       <div class="w3-bar" id="myNavbar">
         <a
+          style="font-size: x-large; color: #000000"
           class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
           href="javascript:void(0);"
           onclick="toggleFunction()"
@@ -83,13 +84,23 @@
         >
           <i class="fa fa-bars"></i>
         </a>
-        <a href="#home" class="w3-bar-item w3-button">HOME</a>
-        <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-        <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+        <a href="#home" class="w3-bar-item w3-button">
+          <img src="./asset/logo/logo.png" alt="logo" style="width: 50px; border-width: 1px" />
+        </a>
+        <div style="top: 10px; position: relative">
+          <a style="color: rgb(0, 0, 0)" href="#about" class="w3-bar-item w3-button w3-hide-small"
+            ><i class="fa fa-user"></i> ABOUT</a
+          >
+          <a style="color: rgb(0, 0, 0)" href="#portfolio" class="w3-bar-item w3-button w3-hide-small"
+            ><i class="fa fa-th"></i> PORTFOLIO</a
+          >
+          <a style="color: rgb(0, 0, 0)" href="#contact" class="w3-bar-item w3-button w3-hide-small"
+            ><i class="fa fa-envelope"></i> CONTACT</a
+          >
+          <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
           <i class="fa fa-search"></i>
         </a> -->
+        </div>
       </div>
 
       <!-- Navbar on small screens -->
@@ -122,10 +133,9 @@
       <p class="w3-center"><em>I love photography</em></p>
       <p>
         Welcome to my photography website! My name is Muhammad Azeem, and I am a software developer with a burning
-        passion for photography. With over two years of experience in software development, I have honed my skills in
-        creating stunning websites and mobile applications. Check out my
-        <a href="https://azeems.netlify.app">Personal Portfolio</a> to see my software development work, which has also
-        taught me the importance of detail and precision in everything I do.
+        passion for photography. Check out my
+        <a style="color: #000000" href="https://azeems.netlify.app">Personal Portfolio</a> to see my software
+        development work, which has also taught me the importance of detail and precision in everything I do.
       </p>
       <div class="w3-row">
         <div class="w3-col m6 w3-center w3-padding-large">
@@ -139,20 +149,18 @@
         <!-- Hide this text on small devices -->
         <div class="w3-col m6 w3-padding-large">
           <p>
-            Photography is not just a hobby for me; it is a passion that has taken over my life. I am a storyteller who
-            uses a camera as my tool. I am constantly searching for new ways to tell stories through my photography. My
-            approach is simple: capture the beauty of the world around me, and freeze those moments in time that are
-            otherwise fleeting.
-            <br />
-            Photography is my escape from the daily grind of coding. It is not only my hobby but also my passion, and I
-            relish every moment spent behind the camera. My approach to photography is simple - I don't limit myself to
-            a particular style or genre. Instead, I prefer to capture the beauty of the world around me as I see it. Be
-            it a breathtaking landscape, a delicate flower, or an impromptu moment between friends, I strive to capture
-            the essence of the moment with my camera.
+            Photography is not just a hobby for me; it is a passion that has taken over my life. It is not only my hobby
+            but also my passion, and I relish every moment spent behind the camera. My approach is simple: capture the
+            beauty of the world around me, and freeze those moments in time that are otherwise fleeting.
             <br />
             <br />
-            Thank you for taking the time to visit my website, and I hope you enjoy exploring my work as much as I
-            enjoyed creating it.
+            <br />
+
+            <span style="font-style: oblique; color: #3b3b3b">
+              I don't limit myself to a particular style or genre. Instead, I prefer to capture the beauty of the world
+              around me as I see it.</span
+            >
+            <br />
           </p>
         </div>
       </div>
@@ -161,7 +169,7 @@
       <div class="w3-light-grey">
         <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width: 85%">85%</div>
       </div>
-      <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Software development</p>
       <div class="w3-light-grey">
         <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width: 90%">90%</div>
       </div>
@@ -482,10 +490,13 @@
             <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Lahore, Pakistan<br />
             <!-- <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br /> -->
             <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
-            azeemshafeeq125@gmail.com<br />
+            muhammadazeemdev125@gmail.com<br />
           </div>
           <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-          <form action="/action_page.php" target="_blank">
+          <a href="mailto:muhammadazeemdev125@gmail.com" class="w3-button w3-black w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND A MAIL
+          </a>
+          <!-- <form action="/action_page.php" target="_blank">
             <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
               <div class="w3-half">
                 <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" />
@@ -495,18 +506,16 @@
               </div>
             </div>
             <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" />
-            <button class="w3-button w3-black w3-right w3-section" type="submit">
-              <i class="fa fa-paper-plane"></i> SEND MESSAGE
-            </button>
-          </form>
+           
+          </form> -->
         </div>
       </div>
     </div>
 
     <!-- Footer -->
     <footer class="w3-center w3-black w3-padding-16">
-      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-      <div class="w3-xlarge w3-section">
+      <!-- <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a> -->
+      <div style="display: flex; justify-content: space-evenly; padding: 0rem 3rem 0rem" class="w3-xlarge w3-section">
         <a
           style="text-decoration: none"
           href="https://www.facebook.com/azeem.chaudhry004?mibextid=LQQJ4d"
@@ -534,22 +543,30 @@
           class="fa fa-linkedin w3-hover-opacity"
         ></a>
       </div>
-      <img src="/asset/logo/logo.png" width="10%" />
-      <p>
-        Powered by
-        <a
-          style="text-decoration: none"
-          href="https://azeems.netlify.app"
-          title="azeemshafeeq"
-          target="_blank"
-          class="w3-hover-text-green"
-          >Azeem Sahfeeq</a
-        >
-      </p>
-      <p>
-        Thank you for visiting my website, and I look forward to connecting with you soon. Let's capture some amazing
-        moments together!
-      </p>
+      <div
+        style="
+          display: flex;
+          place-items: flex-end;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 2rem 0;
+        "
+      >
+        <div>
+          <img src="/asset/logo/logo.png" style="width: 5rem" />
+          <p style="font-size: xx-small">
+            Powered by
+            <a href="https://azeems.netlify.app" title="azeemshafeeq" target="_blank" class="w3-hover-text-green"
+              >Azeem Sahfeeq</a
+            >
+          </p>
+        </div>
+
+        <p style="font-style: oblique; color: rgb(158, 158, 158); font-size: 12px">
+          Thank you for taking the time to visit my website, and I hope you enjoy exploring my work as much as I enjoyed
+          creating it.
+        </p>
+      </div>
     </footer>
 
     <script>
