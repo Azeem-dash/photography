@@ -1,606 +1,723 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Photo By Azeem</title>
-    <link rel="icon" type="image/x-icon" href="/asset/logo/logo.png" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <style>
-      body,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: "Lato", sans-serif;
-      }
-      body,
-      html {
-        height: 100%;
-        color: #777;
-        line-height: 1.8;
-      }
+    <link rel="icon" type="image/x-icon" href="/photos/logo.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-      /* Create a Parallax Effect */
-      .bgimg-1,
-      .bgimg-2,
-      .bgimg-3 {
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i&display=swap" rel="stylesheet" />
 
-      /* First image (Logo. Full height) */
-      .bgimg-1 {
-        background-image: url("/w3images/parallax1.jpg");
-        min-height: 100%;
-      }
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet" />
 
-      /* Second image (Portfolio) */
-      .bgimg-2 {
-        background-image: url("/w3images/parallax2.jpg");
-        min-height: 400px;
-      }
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
 
-      /* Third image (Contact) */
-      .bgimg-3 {
-        background-image: url("/w3images/parallax3.jpg");
-        min-height: 400px;
-      }
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
 
-      .w3-wide {
-        letter-spacing: 10px;
-      }
-      .w3-hover-opacity {
-        cursor: pointer;
-      }
+    <link rel="stylesheet" href="css/aos.css" />
 
-      /* Turn off parallax scrolling for tablets and phones */
-      @media only screen and (max-device-width: 1600px) {
-        .bgimg-1,
-        .bgimg-2,
-        .bgimg-3 {
-          background-attachment: scroll;
-          min-height: 400px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top">
-      <div class="w3-bar" id="myNavbar">
-        <a
-          style="font-size: x-large; color: #000000"
-          class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-          href="javascript:void(0);"
-          onclick="toggleFunction()"
-          title="Toggle Navigation Menu"
-        >
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="#home" class="w3-bar-item w3-button">
-          <img src="./asset/logo/logo.png" alt="logo" style="width: 50px; border-width: 1px" />
-        </a>
-        <div style="top: 10px; position: relative">
-          <a style="color: rgb(0, 0, 0)" href="#about" class="w3-bar-item w3-button w3-hide-small"
-            ><i class="fa fa-user"></i> ABOUT</a
-          >
-          <a style="color: rgb(0, 0, 0)" href="#portfolio" class="w3-bar-item w3-button w3-hide-small"
-            ><i class="fa fa-th"></i> PORTFOLIO</a
-          >
-          <a style="color: rgb(0, 0, 0)" href="#contact" class="w3-bar-item w3-button w3-hide-small"
-            ><i class="fa fa-envelope"></i> CONTACT</a
-          >
-          <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-          <i class="fa fa-search"></i>
-        </a> -->
-        </div>
-      </div>
-
-      <!-- Navbar on small screens -->
-      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-        <!-- <a href="#" class="w3-bar-item w3-button">SEARCH</a> -->
-      </div>
-    </div>
-
-    <!-- First Parallax Image with Logo Text -->
-    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <img src="/asset/photos/68.jpg" width="100%" />
-      <div class="w3-display-middle" style="white-space: nowrap">
-        <!-- <img src="/asset/logo/photo by azeem-logo/vector/default-monochrome-black.svg" width="100%" /> -->
-        <!-- <img src="/asset/logo/photo by azeem-logo/vector/default-monochrome-white.svg" width="100%" /> -->
-
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity" style="display: grid">
-          <img src="/asset/logo/photo by azeem-logo/vector/default-monochrome.svg" width="100%" />
-
-          <!-- MY <span class="w3-hide-small">WEBSITE</span> LOGO -->
-        </span>
-      </div>
-    </div>
-
-    <!-- Container (About Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="about">
-      <h3 class="w3-center">ABOUT ME</h3>
-      <p class="w3-center"><em>I love photography</em></p>
-      <p>
-        Welcome to my photography website! My name is Muhammad Azeem, and I am a software developer with a burning
-        passion for photography. Check out my
-        <a style="color: #000000" href="https://azeems.netlify.app">Personal Portfolio</a> to see my software
-        development work, which has also taught me the importance of detail and precision in everything I do.
-      </p>
-      <div class="w3-row">
-        <div class="w3-col m6 w3-center w3-padding-large">
-          <br />
-          <img src="/asset/photos/me.jpeg" class="w3-round w3-image" alt="Photo of Me" width="500" height="333" />
-          <p>
-            <b><i class="fa fa-user w3-margin-right"></i>Muhammad Azeem</b>
-          </p>
-        </div>
-
-        <!-- Hide this text on small devices -->
-        <div class="w3-col m6 w3-padding-large">
-          <p>
-            Photography is not just a hobby for me; it is a passion that has taken over my life. It is not only my hobby
-            but also my passion, and I relish every moment spent behind the camera. My approach is simple: capture the
-            beauty of the world around me, and freeze those moments in time that are otherwise fleeting.
-            <br />
-            <br />
-            <br />
-
-            <span style="font-style: oblique; color: #3b3b3b">
-              I don't limit myself to a particular style or genre. Instead, I prefer to capture the beauty of the world
-              around me as I see it.</span
-            >
-            <br />
-          </p>
-        </div>
-      </div>
-      <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
-      <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
-      <div class="w3-light-grey">
-        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width: 85%">85%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-laptop"></i>Software development</p>
-      <div class="w3-light-grey">
-        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width: 90%">90%</div>
-      </div>
-      <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
-      <div class="w3-light-grey">
-        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width: 75%">75%</div>
-      </div>
-    </div>
-
-    <!-- <div class="w3-row w3-center w3-dark-grey w3-padding-16">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">14+</span><br />
-        Partners
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">55+</span><br />
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br />
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br />
-        Meetings
-      </div>
-    </div> -->
-
-    <!-- Second Parallax Image with Portfolio Text -->
-    <!-- <div class="bgimg-2 w3-display-container w3-opacity-min">
-      <div class="w3-display-middle">
-        <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
-      </div>
-    </div> -->
-
-    <!-- Container (Portfolio Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="portfolio">
-      <h3 class="w3-center">MY WORK</h3>
-      <p class="w3-center">
-        <em
-          >I invite you to explore my photography portfolio and share your feedback with me. Your comments and ratings
-          not only help me improve my craft, but also inspire me to continue pushing the boundaries of my creativity and
-          capturing the world's beauty through my lens.</em
-        >
-      </p>
-      <br />
-
-      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-      <!-- <div class="w3-row-padding w3-center">
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p1.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="The mist over the mountains"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p2.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="Coffee beans"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p3.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="Bear closeup"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p4.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="Quiet ocean"
-          />
-        </div>
-      </div>
-
-      <div class="w3-row-padding w3-center w3-section">
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p5.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="The mist"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p6.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="My beloved typewriter"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p7.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="Empty ghost train"
-          />
-        </div>
-
-        <div class="w3-col m3">
-          <img
-            src="/w3images/p8.jpg"
-            style="width: 100%"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            alt="Sailing"
-          />
-        </div>
-        <button class="w3-button w3-padding-large w3-light-grey" style="margin-top: 64px">LOAD MORE</button>
-      </div> -->
-      <div class="w3-row" id="myGrid" style="margin-bottom: 128px">
-        <div class="w3-third">
-          <img
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            src="/asset/photos/78.jpg"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/66.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/56.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/43.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/28.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/20.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/7.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/8.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/65.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-        </div>
-
-        <div class="w3-third">
-          <img
-            src="/asset/photos/70.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/71.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/60.webp "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/36.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/12.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/45.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/13.jpg "
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-        </div>
-
-        <div class="w3-third">
-          <img
-            src="/asset/photos/64.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/69.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/29.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/63.webp"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/79.jpeg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/11.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/25.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-          <img
-            src="/asset/photos/37.jpg"
-            onclick="onClick(this)"
-            class="w3-hover-opacity"
-            style="width: 100%; padding: 3px"
-          />
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for full size images on click-->
-    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"
-        ><i class="fa fa-remove"></i
-      ></span>
-      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-        <img id="img01" class="w3-image" />
-        <p id="caption" class="w3-opacity w3-large"></p>
-      </div>
-    </div>
-
-    <!-- Third Parallax Image with Portfolio Text -->
-    <!-- <div class="bgimg-3 w3-display-container w3-opacity-min">
-      <div class="w3-display-middle">
-        <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-      </div>
-    </div> -->
-
-    <!-- Container (Contact Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="contact">
-      <h3 class="w3-center">WHERE I WORK</h3>
-      <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-      <div class="w3-row w3-padding-32 w3-section">
-        <div class="w3-col m4 w3-container">
-          <img src="/asset/photos/34.jpg" class="w3-image w3-round" style="width: 100%" />
-        </div>
-        <div class="w3-col m8 w3-panel">
-          <div class="w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Lahore, Pakistan<br />
-            <!-- <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br /> -->
-            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email:
-            muhammadazeemdev125@gmail.com<br />
-          </div>
-          <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-          <a href="mailto:muhammadazeemdev125@gmail.com" class="w3-button w3-black w3-section" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND A MAIL
+    <nav id="navbar" class="navbar">
+      <ul class="nav-menu">
+        <li>
+          <a data-scroll="home" href="#home" class="dot active">
+            <span>Home</span>
           </a>
-          <!-- <form action="/action_page.php" target="_blank">
-            <div class="w3-row-padding" style="margin: 0 -16px 8px -16px">
-              <div class="w3-half">
-                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name" />
+        </li>
+        <li>
+          <a data-scroll="about" href="#about" class="dot">
+            <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a data-scroll="services" href="#services" class="dot">
+            <span>Skills</span>
+          </a>
+        </li>
+        <li>
+          <a data-scroll="work" href="#work" class="dot">
+            <span>Gallery</span>
+          </a>
+        </li>
+        <!-- <li>
+          <a data-scroll="testimonial" href="#testimonial" class="dot">
+            <span>Testimony</span>
+          </a>
+        </li> -->
+        <li>
+          <a data-scroll="contact" href="#contact" class="dot">
+            <span>Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Nav Section -->
+
+    <!-- Start Home Section -->
+    <section
+      id="home"
+      class="hero-wrap js-fullheight"
+      style="background-image: url(photos/68.jpg)"
+      data-stellar-background-ratio="0.5"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+          <div class="col-lg-7 ftco-animate d-flex align-items-center">
+            <div class="text text-center">
+              <h1 class="logo">
+                <a href="index.html"
+                  ><span class="flaticon-camera-shutter"></span>Photo By Azeem<small>Photography</small></a
+                >
+              </h1>
+              <h1 class="mb-4">Journey Through Two Lenses</h1>
+              <p class="mb-4">The Captivating World of a Passionate Photographer and Software Developer.</p>
+              <p class="mt-5">
+                <a href="#contact" class="btn-custom">Contact us <span class="ion-ios-arrow-round-forward"></span></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Home Section -->
+
+    <!-- Start About Me Section -->
+    <section class="ftco-about img ftco-section" id="about">
+      <div class="container">
+        <div class="row d-flex no-gutters">
+          <div class="col-md-6 col-lg-6 d-flex">
+            <div class="img-about img d-flex align-items-stretch">
+              <div class="overlay"></div>
+              <div
+                class="img img-video d-flex align-self-stretch align-items-center"
+                style="background-image: url(photos/me.jpeg)"
+              ></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 pl-md-5">
+            <div class="heading-section ftco-animate">
+              <h2 class="mb-4">About me</h2>
+              <p style="line-height: 300%">
+                Welcome to my photography website! My name is Muhammad Azeem, and I am a software developer with a
+                burning passion for photography. Check out my Personal Portfolio to see my software development work,
+                which has also taught me the importance of detail and precision in everything I do.
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+              </p>
+
+              <blockquote class="blockquote mt-5">
+                <p class="mb-2">
+                  "I don't limit myself to a particular style or genre. Instead, I prefer to capture the beauty of the
+                  world around me as I see it..."
+                </p>
+                <span>&mdash; M. Azeem</span>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End About Me Section -->
+
+    <!-- Start Services Section -->
+    <section id="services" class="ftco-section">
+      <div class="container">
+        <div class="row progress-circle pt-md-5">
+          <div class="col-md-7 order-md-last py-md-5">
+            <div class="row">
+              <div class="col-md-4 mb-md-0 mb-4 ftco-animate">
+                <div class="">
+                  <h2 class="text-center mb-4">Software development</h2>
+
+                  <!-- Progress bar 1 -->
+                  <div class="progress mx-auto" data-value="90">
+                    <span class="progress-left">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <span class="progress-right">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <div
+                      class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <div class="h5">90<sup class="small">%</sup></div>
+                    </div>
+                  </div>
+                  <!-- END -->
+                </div>
               </div>
-              <div class="w3-half">
-                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email" />
+
+              <div class="col-md-4 mb-md-0 mb-4 ftco-animate">
+                <div class="">
+                  <h2 class="text-center mb-4">Photography</h2>
+
+                  <!-- Progress bar 1 -->
+                  <div class="progress mx-auto" data-value="80">
+                    <span class="progress-left">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <span class="progress-right">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <div
+                      class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <div class="h5">80<sup class="small">%</sup></div>
+                    </div>
+                  </div>
+                  <!-- END -->
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-md-0 mb-4 ftco-animate">
+                <div class="">
+                  <h2 class="text-center mb-4">Photoshop</h2>
+
+                  <!-- Progress bar 1 -->
+                  <div class="progress mx-auto" data-value="75">
+                    <span class="progress-left">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <span class="progress-right">
+                      <span class="progress-bar border-primary"></span>
+                    </span>
+                    <div
+                      class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <div class="h5">75<sup class="small">%</sup></div>
+                    </div>
+                  </div>
+                  <!-- END -->
+                </div>
+              </div>
+
+              <div class="p-md-4 mt-4">
+                <div class="col-md-8 ftco-animate">
+                  <p>
+                    I invite you to explore my photography portfolio and share your feedback with me. Your comments and
+                    ratings not only help me improve my craft, but also inspire me to continue pushing the boundaries of
+                    my creativity and capturing the world's beauty through my lens.
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                  </p>
+                </div>
               </div>
             </div>
-            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message" />
-           
-          </form> -->
+          </div>
+          <div class="col-md-5 d-flex align-items-stretch">
+            <div class="img w-100" style="background-image: url(photos/65.jpg)"></div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- End Services Section -->
 
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-16">
-      <!-- <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a> -->
-      <div style="display: flex; justify-content: space-evenly; padding: 0rem 3rem 0rem" class="w3-xlarge w3-section">
-        <a
-          style="text-decoration: none"
-          href="https://www.facebook.com/azeem.chaudhry004?mibextid=LQQJ4d"
-          class="fa fa-facebook-official w3-hover-opacity"
-        ></a>
-        <a
-          style="text-decoration: none"
-          href="https://instagram.com/its_azeem_ch?igshid=ZjE2NGZiNDQ="
-          class="fa fa-instagram w3-hover-opacity"
-        ></a>
-        <a
-          style="text-decoration: none"
-          href="https://www.snapchat.com/add/azeem00001?share_id=orJTJY8ET0e3kzRfuKDBXA&locale=en_PK"
-          class="fa fa-snapchat w3-hover-opacity"
-        ></a>
-
-        <a
-          style="text-decoration: none"
-          href="https://twitter.com/itsazeemch1?s=09&fbclid=PAAaZS9z4_XeXqrJUaLLH0kiE3S5u6k8eMkhP6pYcd2StdhIHJl-xhJ5Sd7iI"
-          class="fa fa-twitter w3-hover-opacity"
-        ></a>
-        <a
-          style="text-decoration: none"
-          href="https://www.linkedin.com/in/muhammad-azeem-904732195/"
-          class="fa fa-linkedin w3-hover-opacity"
-        ></a>
+    <!-- Start Testimonials Section -->
+    <section id="work" class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-4 heading-section text-center ftco-animate pb-5">
+            <h2 class="mb-4">MY WORK</h2>
+            <p>
+              capture the beauty of the world around me, and freeze those moments in time that are otherwise fleeting.
+            </p>
+          </div>
+        </div>
       </div>
-      <div
-        style="
-          display: flex;
-          place-items: flex-end;
-          align-items: center;
-          justify-content: space-between;
-          padding: 0 2rem 0;
-        "
-      >
-        <div>
-          <img src="/asset/logo/logo.png" style="width: 5rem" />
-          <p style="font-size: xx-small">
-            Powered by
-            <a href="https://azeems.netlify.app" title="azeemshafeeq" target="_blank" class="w3-hover-text-green"
-              >Azeem Sahfeeq</a
-            >
-          </p>
+      <div class="container-fluid px-md-0">
+        <div class="row no-gutters">
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/78.jpg)">
+              <a href="photos/78.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Bike</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/70.jpg)">
+              <a href="photos/70.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/77.jpg)">
+              <a href="photos/77.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/71.jpg)">
+              <a href="photos/71.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/66.jpg)">
+              <a href="photos/66.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/72.jpg)">
+              <a href="photos/72.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/56.jpg)">
+              <a href="photos/56.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/79.jpeg)">
+              <a href="photos/79.jpeg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/69.jpg)">
+              <a href="photos/69.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/36.jpg)">
+              <a href="photos/36.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/29.jpg)">
+              <a href="photos/29.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/23.jpg)">
+              <a href="photos/23.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/68.jpg)">
+              <a href="photos/68.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/60.webp)">
+              <a href="photos/60.webp" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/28.jpg)">
+              <a href="photos/28.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/43.jpg)">
+              <a href="photos/43.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/27.jpg)">
+              <a href="photos/27.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/45.jpg)">
+              <a href="photos/45.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/12.jpg)">
+              <a href="photos/12.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/13.jpg)">
+              <a href="photos/13.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/11.jpg)">
+              <a href="photos/11.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/10.jpg)">
+              <a href="photos/10.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/81.jpeg)">
+              <a href="photos/81.jpeg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/80.jpeg)">
+              <a href="photos/80.jpeg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+              <!-- <div class="desc w-100 px-4">
+                <div class="text w-100 mb-3">
+                  <span>Nature</span>
+                  <h2><a href="work-single.html">Beautiful Work</a></h2>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Project Section -->
+
+    <!-- Start Contact Section -->
+    <section class="ftco-section contact-section" id="contact">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-4 heading-section text-center ftco-animate">
+            <h2 class="mb-4">For Contact</h2>
+            <p>I'd love your feedback!</p>
+          </div>
         </div>
 
-        <p style="font-style: oblique; color: rgb(158, 158, 158); font-size: 12px">
-          Thank you for taking the time to visit my website, and I hope you enjoy exploring my work as much as I enjoyed
-          creating it.
-        </p>
+        <div class="row block-9">
+          <div class="col-md-6 ftco-animate">
+            <form action="#" class="contact-form p-4 p-md-5 py-md-5">
+              <div style="display: flex; justify-content: space-around">
+                <div class="col-md-3 d-flex ftco-animate">
+                  <div style="width: max-content" class="align-self-stretch box text-center p-4">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="icon-map-signs"></span>
+                    </div>
+                    <div>
+                      <h3 class="mb-4">Address</h3>
+                      <p>
+                        Mustafa Town, Wahadat Road,<br />
+                        Lahore, Pakistan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 d-flex ftco-animate">
+                  <div style="width: max-content" class="align-self-stretch box text-center p-4">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="icon-phone2"></span>
+                    </div>
+                    <div>
+                      <h3 class="mb-4">Contact Number</h3>
+                      <p><a href="tel://923055992846">+92 3055992846</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-around">
+                <div class="col-md-3 d-flex ftco-animate">
+                  <div style="width: max-content" class="align-self-stretch box text-center p-4">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="icon-paper-plane"></span>
+                    </div>
+                    <div>
+                      <h3 class="mb-4">Email Address</h3>
+                      <p><a href="mailto:muhammadazeemdev125@gmail.com">muhammadazeemdev125@gmail.com</a></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 d-flex ftco-animate">
+                  <div style="width: max-content" class="align-self-stretch box text-center p-4">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                      <span class="icon-globe"></span>
+                    </div>
+                    <div>
+                      <h3 class="mb-4">Website</h3>
+                      <p><a href="https://azeems.netlify.app">azeems.netlify.app</a></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group ftco-animate">
+                <!-- <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" /> -->
+                <a href="mailto:muhammadazeemdev125@gmail.com" class="btn btn-primary py-3 px-5">Send Message</a>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="model img d-flex align-items-end" style="background-image: url(photos/34.jpg)">
+              <a href="photos/34.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+                <span class="icon-expand"></span>
+              </a>
+            </div>
+            <!-- <div id="map"></div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    <!-- Start Footer Section -->
+    <footer class="ftco-footer py-5">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+              Thank you for taking the time to visit my website, and I hope you enjoy exploring my work as much as I
+              enjoyed creating it.
+            </p>
+
+            <ul class="ftco-footer-social p-0">
+              <li class="ftco-animate">
+                <a
+                  href="https://twitter.com/itsazeemch1?s=09&fbclid=PAAaZS9z4_XeXqrJUaLLH0kiE3S5u6k8eMkhP6pYcd2StdhIHJl-xhJ5Sd7iI"
+                  ><span class="icon-twitter"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a href="https://www.facebook.com/azeem.chaudhry004?mibextid=LQQJ4d"
+                  ><span class="icon-facebook"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a href="https://instagram.com/its_azeem_ch?igshid=ZjE2NGZiNDQ="
+                  ><span class="icon-instagram"></span
+                ></a>
+              </li>
+              <li class="ftco-animate">
+                <a href="https://www.linkedin.com/in/muhammad-azeem-904732195/"><span class="icon-linkedin"></span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
+    <!-- End Footer Section -->
 
-    <script>
-      // Modal Image Gallery
-      function onClick(element) {
-        document.getElementById("img01").src = element.src;
-        document.getElementById("modal01").style.display = "block";
-        var captionText = document.getElementById("caption");
-        captionText.innerHTML = element.alt;
-      }
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+      <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle
+          class="path"
+          cx="24"
+          cy="24"
+          r="22"
+          fill="none"
+          stroke-width="4"
+          stroke-miterlimit="10"
+          stroke="#F96D00"
+        />
+      </svg>
+    </div>
 
-      // Change style of navbar on scroll
-      window.onscroll = function () {
-        myFunction();
-      };
-      function myFunction() {
-        var navbar = document.getElementById("myNavbar");
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-          navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-        } else {
-          navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-        }
-      }
-
-      // Used to toggle the menu on small screens when clicking on the menu button
-      function toggleFunction() {
-        var x = document.getElementById("navDemo");
-        if (x.className.indexOf("w3-show") == -1) {
-          x.className += " w3-show";
-        } else {
-          x.className = x.className.replace(" w3-show", "");
-        }
-      }
-    </script>
-    <script></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
