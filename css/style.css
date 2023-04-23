@@ -6734,7 +6734,7 @@ button.bg-dark:focus {
   padding-left: 1rem !important; }
 
 .p-4 {
-  padding: 1.5rem !important; }
+  padding: 0.5rem !important; }
 
 .pt-4,
 .py-4 {
@@ -8193,7 +8193,7 @@ strong {
 
 .navbar .nav-menu li {
   position: relative;
-  min-width: 200px;
+  /* min-width: 200px; */
   text-align: right; }
 
 .navbar .nav-menu li .dot {
@@ -8576,7 +8576,7 @@ strong {
     z-index: 1; }
     @media (max-width: 767.98px) {
       .ftco-about .img-about .img {
-        height: 400px;
+        /* height: 400px; */
         margin-bottom: 20px; } }
 
 .ftco-about .img-about-2 {
