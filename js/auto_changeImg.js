@@ -10,7 +10,7 @@ $(function () {
     document.getElementById("ChangeIMG").src = images[x];
   }
 
-  setInterval(displayNextImage, 4000);
+  setInterval(displayNextImage, 3500);
 
   var images = [],
     x = -1;
