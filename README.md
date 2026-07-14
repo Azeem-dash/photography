@@ -169,4 +169,4 @@ The previous version of this site was a Colorlib template carrying jQuery, Boots
 Photographs © Muhammad Azeem. All rights reserved — please ask before reusing an image.
 Site design and code are free to learn from.
 
-**[Instagram](https://instagram.com/its_azeem_ch)** · **[LinkedIn](https://www.linkedin.com/in/muhammad-azeem-904732195/)** · **[GitHub](https://github.com/Azeem-dash)** · muhammadazeemdev125@gmail.com
+**[Instagram](https://www.instagram.com/photo_by_azeem/)** · **[LinkedIn](https://www.linkedin.com/in/azeem-shafeeq/)** · **[GitHub](https://github.com/Azeem-dash)** · muhammadazeemdev125@gmail.com
