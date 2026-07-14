@@ -1,0 +1,48 @@
+[build]
+  publish = "."
+  # The site is static and pre-rendered; the Python tools are authoring-time
+  # only, so there is nothing for Netlify to compile.
+  command = ""
+
+# Derivatives are content-hashed by width and never mutate in place -- a new
+# photo is a new filename. Safe to cache them hard, forever.
+[[headers]]
+  for = "/assets/gallery/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# CSS/JS can change on any deploy, so revalidate instead of caching blind.
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# The old template shipped these pages; keep any existing links alive.
+[[redirects]]
+  from = "/main.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/work-single.html"
+  to = "/#work"
+  status = 301

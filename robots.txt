@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://photo-by-azeem.netlify.app/sitemap.xml
