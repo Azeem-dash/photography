@@ -21,8 +21,8 @@ A hand-built, zero-dependency photography portfolio. No React, no jQuery, no Boo
 | | |
 |---|---|
 | **93** curated photographs | across **7** collections |
-| **~390 KB** critical path | **~100 ms** first contentful paint |
-| **0** runtime dependencies | **0** render-blocking third-party requests |
+| **386 KB** critical path | **6** requests to first paint |
+| **0** cumulative layout shift | **0** runtime dependencies |
 
 <table>
 <tr>
@@ -145,14 +145,16 @@ brand/                  logo and marks
 
 ## Performance
 
-Measured in Chrome against the production build (1400×900, cold cache):
+Measured in Chrome against the **live site**, 1400×900, cache disabled:
 
 | | |
 |---|---|
-| First contentful paint | **~100 ms** |
-| Requests before load | **5** |
-| Critical path | **~390 KB** (HTML 23 KB · CSS 5 KB · JS 3 KB · fonts 62 KB · hero 293 KB) |
-| Gallery images fetched on landing | **0** of 93 — the grid is below the fold, so every frame is lazy |
+| Requests to first paint | **6** |
+| Critical path | **386 KB** — HTML 24 KB gz · CSS 5 KB gz · JS 3 KB gz · fonts 62 KB · hero 293 KB |
+| Cumulative layout shift | **0** |
+| JavaScript errors | **0** |
+| Gallery images fetched on landing | **1** of 93 — the hero. The grid is below the fold, so every frame in it is lazy. |
+| First contentful paint | ~100 ms on localhost; ~1.1 s cold over the public network, where the hero photograph dominates |
 
 The hero is the only image on the critical path. The remaining hero slides are hydrated after `load`, so they never compete with the first paint.
 
