@@ -13,6 +13,10 @@
    "label": "Architecture"
   },
   {
+   "id": "pilgrimage",
+   "label": "Pilgrimage"
+  },
+  {
    "id": "nature",
    "label": "Nature"
   },
@@ -235,6 +239,159 @@
    "title": "Rest Stop"
   },
   {
+   "id": "img_0450",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoUABsAPt1cpEyopSMiMBgMARAbiWUAqPQFxbNOcO6g+O3tdywYgAD+haeVSwFJME4/nr0AhGxR7qNADRoDAAZ4WF2ClCuJmmbWGc4BFRSR8S8ulmfU9u1Fzxq2hnI3PEC+79O1EWRfMux6ntBo2mVFL3w5o5bokSTazQAA",
+   "color": "#603e16",
+   "category": "pilgrimage",
+   "title": "Held Open"
+  },
+  {
+   "id": "img_0656",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwBACdASoUABsAPt1aqU6opKOiMBgIARAbiWMAthQ0b6TdZ9+Xtcke6jxCYw7vBwAA/tNzX4SmYgqmNlesGCIqu4S7kd90n9SSSxESl6FvzldZvLzwwm1zcT8B2ph1BHOSF4ihjWIHDGjDbAA=",
+   "color": "#9daec8",
+   "category": "pilgrimage",
+   "title": "The Green Dome"
+  },
+  {
+   "id": "img_0743",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABQBQCdASoUABsAPs1WoUynpSMiN/qoAPAZiWMAuwAh3y5/tTXP8NnlkBffs07ROJI3MgAA/ujtUUvZbiv0RppXJs8Yv+Muzrvonj6b6tsj9mhzqtyp3V7nDvgfI4dzCsOaZlqJp6QAAA==",
+   "color": "#161d2f",
+   "category": "pilgrimage",
+   "title": "Al-Haram After Isha"
+  },
+  {
+   "id": "img_0772",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBQCdASoUABsAPt1mqU+opaOiKAqpEBuJZQDCgDTv7wZcAul18y570ZcOqZR1XAdgAP75FNAyUNQN1Wz1rxSxvK7RMxUitt1i+Cirg7ThkS31SJrnxiojyBhoH7u6uLXqvfqcaMRNCIJv+j+OHvB1zliY0AAA",
+   "color": "#0b141b",
+   "category": "pilgrimage",
+   "title": "The Kaaba at Night"
+  },
+  {
+   "id": "img_0811",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoUABsAPtlaoUyoJSMiMAwBABsJYwCw7C21C5I1Tkfq0dYAAP7hmaereDRd2kjptFATR1B8r2QKrTC1EmMYXsiVVefhcRl4Jzo12mKr+mP8qX5zyX55X3YOzV/YmxxIeLAqzwAA",
+   "color": "#8497b5",
+   "category": "pilgrimage",
+   "title": "The Courtyard, Daylight"
+  },
+  {
+   "id": "img_8878",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBQCdASoUABsAPt1UpUyopCOiN/VYARAbiWUArAAPDZtM+TiuAj5v8DSv9bQKbbIQAADOPNXnA+Q9k1sMZKLxA9/bD/z8pMwjRdUogcdx1BHEX0TndVyaHnjKHzorJQL8KLg5kUrkfoXwrs4Tmt4ZeWN9XT/CAAA=",
+   "color": "#e5e7e4",
+   "category": "street",
+   "title": "Narrow Lane"
+  },
+  {
+   "id": "img_8882",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQBACdASoUABsAPt1orVEopaQiqAgBEBuJZQC06BC1JpwtsJ+DIrAeF30Id2fcAAD+8qQNnrkNVnmCvMT+j+MJWDy2zNRajhttqKUmxDwJ+UBD6OnI/TAAV79qcbqmjABAIiVNiCNaAcCn6Gi/YAAA",
+   "color": "#9e8571",
+   "category": "street",
+   "title": "Old City, Early"
+  },
+  {
+   "id": "img_8894",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwBACdASoUABsAPt1cqU6opKOiMBgIARAbiWUAAC5pVhuIyx0+1OnAHZs8AAD+7a0ASDYUWdzuCwlaiydporQ7zvY/JPn/e/10k5epNe/LuatniA38dLaqdGqbbpqcfMC4GdZXIfnv1cFiEylRPS1TDk/PPTSxQISo/encp7y1QIMQAAA=",
+   "color": "#e7e6e1",
+   "category": "street",
+   "title": "Shah Jahani Dawakhana"
+  },
+  {
+   "id": "img_8905",
+   "w": 3024,
+   "h": 4032,
+   "widths": [
+    400,
+    800,
+    1200,
+    1600,
+    2400
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBQCdASoUABsAPt1ep02opSOiKA1REBuJYwC7M1XBqYsrcrNwVB1TCEvOaf0i42mRowAA/rld1N0kHd26h4WxxIcDQEDsLj7xBLErgMxUAi9Ct3otrV4Xyk5GcALFBKEp610zlVF4niEvfQ6NfU0g2R9H7IQA",
+   "color": "#785128",
+   "category": "architecture",
+   "title": "Behind the Railings"
+  },
+  {
    "id": "87",
    "w": 2268,
    "h": 4032,
@@ -349,6 +506,22 @@
    "color": "#e1edeb",
    "category": "architecture",
    "title": "Scaffold"
+  },
+  {
+   "id": "img_7935",
+   "w": 1242,
+   "h": 2208,
+   "widths": [
+    400,
+    800,
+    1200,
+    1242
+   ],
+   "fallback": 1200,
+   "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACwBgCdASoUACQAPt1ipE2opaMiMBVaqRAbiWQAnTLCRlA7IA8o6ZN2Fu4MIctdI+1kRdew03PJCCnUTntqAAD8regvbkv/sCF0TPLoFsdAWQW3XPAyUyD/vOPMLJ7VP7OO1OaGlTidQmGaR0yMIimik+DSmdVSSMpRcn6v1hWsywK4pt5bGfB4ngTb2UAA",
+   "color": "#57739a",
+   "category": "architecture",
+   "title": "Sandstone and Sky"
   },
   {
    "id": "46",

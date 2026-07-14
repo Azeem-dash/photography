@@ -23,7 +23,7 @@ PAGE = os.path.join(ROOT, "index.html")
 GAL = "assets/gallery"
 
 # Frames good enough to carry a full-bleed hero, chosen by eye.
-HERO = ["67", "97", "100", "38"]
+HERO = ["67", "img_0772", "97", "100"]
 
 # The grid sits entirely below the full-height hero, so no gallery image is ever
 # above the fold. Every one of them is lazy; the hero alone owns the critical path.

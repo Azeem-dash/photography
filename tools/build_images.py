@@ -58,14 +58,16 @@ def webp_quality(width):
 # Anything not listed here is skipped -- that is how the screenshots, text/quote
 # overlays and duplicates stay out of the portfolio.
 # ---------------------------------------------------------------------------
-MACRO, GOLDEN, ARCH, NATURE, RIDES, MOUNTAINS, STREET = (
+MACRO, GOLDEN, ARCH, NATURE, RIDES, MOUNTAINS, STREET, SACRED = (
     "macro", "golden", "architecture", "nature", "rides", "mountains", "street",
+    "pilgrimage",
 )
 
 CATEGORY_META = [
     ("macro",        "Macro"),
     ("golden",       "Golden Hour"),
     ("architecture", "Architecture"),
+    ("pilgrimage",   "Pilgrimage"),
     ("nature",       "Nature"),
     ("rides",        "Roads & Rides"),
     ("mountains",    "Mountains"),
@@ -179,6 +181,20 @@ CURATION = {
     "67.jpg":  (STREET, "Blue Alley"),
     "74.jpg":  (STREET, "Rickshaw Row"),
     "8.jpg":   (STREET, "Open Ground"),
+
+    # --- Makkah & Madinah (2026) -- the full-resolution set ---
+    "IMG_0772.jpg": (SACRED, "The Kaaba at Night"),
+    "IMG_0743.jpg": (SACRED, "Al-Haram After Isha"),
+    "IMG_0811.jpg": (SACRED, "The Courtyard, Daylight"),
+    "IMG_0656.jpg": (SACRED, "The Green Dome"),
+    "IMG_0450.jpg": (SACRED, "Held Open"),
+
+    # --- old Lahore, same set ---
+    "IMG_8894.jpg": (STREET, "Shah Jahani Dawakhana"),
+    "IMG_8882.jpg": (STREET, "Old City, Early"),
+    "IMG_8878.jpg": (STREET, "Narrow Lane"),
+    "IMG_8905.jpg": (ARCH,   "Behind the Railings"),
+    "IMG_7935.jpg": (ARCH,   "Sandstone and Sky"),
 }
 
 # Portraits used in the About section -- processed, but kept out of the grid.

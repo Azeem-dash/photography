@@ -1,14 +1,14 @@
 # Photo by Azeem
 
 **The photography of Muhammad Azeem — a software engineer in Lahore, Pakistan.**
-Macro and bokeh, golden hour, Lahore's architecture, and the mountain roads of northern Pakistan. Almost all of it shot on a phone.
+Macro and bokeh, golden hour, Lahore's architecture, Makkah and Madinah, and the mountain roads of northern Pakistan. Almost all of it shot on a phone.
 
 ### 🔗 [photo-by-azeem.netlify.app](https://photo-by-azeem.netlify.app/)
 
 [![Live](https://img.shields.io/badge/live-photo--by--azeem.netlify.app-d99a4e)](https://photo-by-azeem.netlify.app/)
 [![Netlify](https://img.shields.io/badge/deploy-Netlify-00c7b7?logo=netlify&logoColor=white)](https://photo-by-azeem.netlify.app/)
 [![No dependencies](https://img.shields.io/badge/runtime%20dependencies-0-brightgreen)](#no-framework-no-dependencies)
-[![Photos](https://img.shields.io/badge/photographs-93-informational)](#the-image-pipeline)
+[![Photos](https://img.shields.io/badge/photographs-103-informational)](#the-image-pipeline)
 
 ![The site](docs/hero.jpg)
 
@@ -20,7 +20,7 @@ A hand-built, zero-dependency photography portfolio. No React, no jQuery, no Boo
 
 | | |
 |---|---|
-| **93** curated photographs | across **7** collections |
+| **103** curated photographs | across **8** collections |
 | **386 KB** critical path | **6** requests to first paint |
 | **0** cumulative layout shift | **0** runtime dependencies |
 
@@ -40,7 +40,7 @@ A hand-built, zero-dependency photography portfolio. No React, no jQuery, no Boo
 ## Features
 
 - **Masonry gallery** built on CSS multi-column — true masonry with no JavaScript and no layout library, correct at every viewport width.
-- **Category filters** (Macro, Golden Hour, Architecture, Nature, Roads & Rides, Mountains, Street) with live counts.
+- **Category filters** (Macro, Golden Hour, Architecture, Pilgrimage, Nature, Roads & Rides, Mountains, Street) with live counts.
 - **Full-resolution lightbox** — keyboard (`←` `→` `Esc`), swipe on touch, neighbour prefetching so paging feels instant, focus trapping, and body-scroll locking.
 - **Blur-up loading.** Every photo ships an inline ~20px blurred placeholder, so you never see an empty box and the layout never shifts.
 - **Zero layout shift.** Real `width`/`height` on every image means the browser reserves the exact box before the file arrives.
@@ -153,7 +153,7 @@ Measured in Chrome against the **live site**, 1400×900, cache disabled:
 | Critical path | **386 KB** — HTML 24 KB gz · CSS 5 KB gz · JS 3 KB gz · fonts 62 KB · hero 293 KB |
 | Cumulative layout shift | **0** |
 | JavaScript errors | **0** |
-| Gallery images fetched on landing | **1** of 93 — the hero. The grid is below the fold, so every frame in it is lazy. |
+| Gallery images fetched on landing | **1** of 103 — the hero. The grid is below the fold, so every frame in it is lazy. |
 | First contentful paint | ~100 ms on localhost; ~1.1 s cold over the public network, where the hero photograph dominates |
 
 The hero is the only image on the critical path. The remaining hero slides are hydrated after `load`, so they never compete with the first paint.
