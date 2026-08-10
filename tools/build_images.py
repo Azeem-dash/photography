@@ -51,6 +51,16 @@ def webp_quality(width):
         return 78
     return 80
 
+
+def avif_quality(width):
+    """AVIF holds detail at lower settings than WebP; these land ~30% lighter
+    than the WebP rung at the same visual quality."""
+    if width >= 1600:
+        return 50
+    if width >= 1200:
+        return 55
+    return 60
+
 # ---------------------------------------------------------------------------
 # Curation. Photos are keyed by their original filename.
 #
@@ -294,6 +304,12 @@ def process(fname, force=False):
             if force or not os.path.exists(dst):
                 resized = im.resize((tw, th), Image.LANCZOS)
                 resized.save(dst, "WEBP", quality=webp_quality(tw), method=6)
+
+            dst = os.path.join(OUT, f"{sid}-{tw}.avif")
+            if force or not os.path.exists(dst):
+                if resized is None:
+                    resized = im.resize((tw, th), Image.LANCZOS)
+                resized.save(dst, "AVIF", quality=avif_quality(tw))
 
             if tw == fallback_w:
                 dst = os.path.join(OUT, f"{sid}-{tw}.jpg")

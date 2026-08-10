@@ -1,8 +1,10 @@
 [build]
   publish = "."
-  # The site is static and pre-rendered; the Python tools are authoring-time
-  # only, so there is nothing for Netlify to compile.
-  command = ""
+  # The site is static and pre-rendered. The command only prunes authoring-time
+  # material from the publish tree: `library/` holds ~98MB of camera originals
+  # that no page references, and `tools/` is the local Python pipeline. This
+  # runs on Netlify's build copy of the repo -- the git history is untouched.
+  command = "rm -rf library tools"
 
 # Derivatives are content-hashed by width and never mutate in place -- a new
 # photo is a new filename. Safe to cache them hard, forever.

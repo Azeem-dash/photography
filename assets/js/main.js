@@ -10,6 +10,9 @@
   const root = document.documentElement;
   const setTheme = (t) => {
     root.dataset.theme = t;
+    // keep the browser chrome (mobile address bar) on the chosen theme too
+    const c = t === 'light' ? '#faf9f7' : '#0b0b0c';
+    $$('meta[name="theme-color"]').forEach((m) => { m.content = c; });
     try { localStorage.setItem('pba-theme', t); } catch {}
   };
   $('.theme-toggle')?.addEventListener('click', () =>
@@ -84,44 +87,29 @@
   };
   $$('.card').forEach(watchReveal);
 
-  /* --- skill bars -------------------------------------------------------- */
-  const skills = $$('.skill__fill');
-  if (skills.length) {
-    const so = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          e.target.style.width = e.target.dataset.level + '%';
-          obs.unobserve(e.target);
-        });
-      },
-      { threshold: 0.4 }
-    );
-    skills.forEach((s) => so.observe(s));
-  }
-
   /* --- hero slideshow ---------------------------------------------------- */
   const slides = $$('.hero__slide');
 
-  // Slides 2..n ship without a src so they cannot compete with the first paint.
-  // Pull them in once the page is idle -- long before the 6.5s rotation needs them.
-  const hydrateHero = () => {
-    $$('.hero__slide img[data-src]').forEach((img) => {
-      img.srcset = img.dataset.srcset;
-      img.src = img.dataset.src;
-      delete img.dataset.src;
-      delete img.dataset.srcset;
+  // Slides 2..n ship with data-srcset only, so they cost nothing at load time.
+  // Each is hydrated one rotation ahead of when it is shown -- a visitor who
+  // never lingers on the hero never downloads them. srcset alone is set (never
+  // src), so the browser resolves exactly one candidate per slide.
+  const hydrateSlide = (slide) => {
+    $$('source[data-srcset], img[data-srcset]', slide).forEach((el) => {
+      el.srcset = el.dataset.srcset;
+      delete el.dataset.srcset;
     });
   };
-  if (document.readyState === 'complete') hydrateHero();
-  else addEventListener('load', hydrateHero, { once: true });
 
   if (slides.length > 1 && !reduced) {
     let i = 0;
+    // warm the second slide well before the first 6.5s rotation needs it
+    setTimeout(() => hydrateSlide(slides[1]), 2500);
     setInterval(() => {
       slides[i].classList.remove('is-active');
       i = (i + 1) % slides.length;
       slides[i].classList.add('is-active');
+      hydrateSlide(slides[(i + 1) % slides.length]);
       // restart the ken-burns drift on the newly shown frame
       const img = slides[i].querySelector('img');
       img.style.animation = 'none';

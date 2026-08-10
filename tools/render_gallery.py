@@ -22,8 +22,14 @@ MANIFEST = os.path.join(ROOT, "data", "gallery.json")
 PAGE = os.path.join(ROOT, "index.html")
 GAL = "assets/gallery"
 
-# Frames good enough to carry a full-bleed hero, chosen by eye.
-HERO = ["67", "img_0772", "97", "100"]
+# Frames good enough to carry a full-bleed hero, chosen by eye. The order
+# matters: the first slide is the site's first impression, so it must be a
+# bright frame that shows the photography instantly -- never a night shot.
+HERO = ["100", "97", "img_0772", "67"]
+
+# The hero is object-fit: cover and never shown at full resolution, so anything
+# past 1600w is invisible weight (the 2400w rung alone is ~1MB per frame).
+HERO_MAX_W = 1600
 
 # The grid sits entirely below the full-height hero, so no gallery image is ever
 # above the fold. Every one of them is lazy; the hero alone owns the critical path.
@@ -64,6 +70,7 @@ def card(p, labels, i):
             >
               <button class="card__media" type="button" aria-label="Open &quot;{esc(p['title'])}&quot; full size">
                 <picture>
+                  <source type="image/avif" srcset="{srcset(p, 'avif')}" sizes="(min-width:1500px) 22vw, (min-width:1100px) 30vw, (min-width:720px) 45vw, 92vw" />
                   <source type="image/webp" srcset="{srcset(p, 'webp')}" sizes="(min-width:1500px) 22vw, (min-width:1100px) 30vw, (min-width:720px) 45vw, 92vw" />
                   <img
                     class="card__img"
@@ -94,33 +101,49 @@ def build(m):
     # --- hero slides ---
     # All four slides sit inside the viewport, so loading="lazy" would not hold
     # any of them back -- they would all download up front for ~3MB of images the
-    # visitor cannot see yet. Only the first slide gets a real src; the rest carry
-    # data-srcset and are hydrated by main.js once the page has finished loading.
+    # visitor cannot see yet. Only the first slide gets a real srcset; the rest
+    # carry data-srcset and are hydrated by main.js one rotation ahead of when
+    # each is shown. Hydration sets srcset only (never src), so the browser
+    # resolves exactly one candidate per slide.
     hero = []
+    preload = ""
     for n, hid in enumerate(HERO):
         p = by_id.get(hid)
         if not p:
             continue
-        ss = ", ".join(
-            f"{GAL}/{p['id']}-{w}.webp {w}w" for w in p["widths"] if w >= 800
-        ) or f"{GAL}/{p['id']}-{max(p['widths'])}.webp {max(p['widths'])}w"
+        hw = [w for w in p["widths"] if 800 <= w <= HERO_MAX_W] or [
+            min(p["widths"], key=lambda w: abs(w - HERO_MAX_W))
+        ]
+
+        def hero_ss(ext):
+            return ", ".join(f"{GAL}/{p['id']}-{w}.{ext} {w}w" for w in hw)
+
         fb = f"{GAL}/{p['id']}-{p['fallback']}.jpg"
 
         if n == 0:
-            src = f'src="{fb}" srcset="{ss}" sizes="100vw" fetchpriority="high"'
+            avif = f'srcset="{hero_ss("avif")}" sizes="100vw"'
+            img = f'src="{fb}" srcset="{hero_ss("webp")}" sizes="100vw" fetchpriority="high"'
+            preload = (
+                f'<link rel="preload" as="image" type="image/avif" '
+                f'imagesrcset="{hero_ss("avif")}" imagesizes="100vw" fetchpriority="high" />'
+            )
         else:
-            src = f'data-src="{fb}" data-srcset="{ss}" sizes="100vw"'
+            avif = f'data-srcset="{hero_ss("avif")}" sizes="100vw"'
+            img = f'data-srcset="{hero_ss("webp")}" sizes="100vw"'
 
         hero.append(
             f"""          <div class="hero__slide{' is-active' if n == 0 else ''}">
-            <img
-              {src}
-              width="{p['w']}"
-              height="{p['h']}"
-              alt=""
-              decoding="async"
-              style="background-color:{p['color']}"
-            />
+            <picture>
+              <source type="image/avif" {avif} />
+              <img
+                {img}
+                width="{p['w']}"
+                height="{p['h']}"
+                alt=""
+                decoding="async"
+                style="background-color:{p['color']}"
+              />
+            </picture>
           </div>"""
         )
 
@@ -130,7 +153,7 @@ def build(m):
     for n, label in [
         (len(photos), "Photographs"),
         (len(m["categories"]), "Collections"),
-        (hd, "Full resolution"),
+        (hd, "Full-res frames"),
     ]:
         stats.append(
             f"""              <div class="stat">
@@ -168,6 +191,7 @@ def build(m):
     if m["portraits"]:
         p = m["portraits"][0]
         portrait = f"""              <picture>
+                <source type="image/avif" srcset="{srcset(p, 'avif')}" sizes="(min-width:900px) 40vw, 92vw" />
                 <source type="image/webp" srcset="{srcset(p, 'webp')}" sizes="(min-width:900px) 40vw, 92vw" />
                 <img
                   src="{GAL}/{p['id']}-{p['fallback']}.jpg"
@@ -182,6 +206,7 @@ def build(m):
 
     return {
         "hero": "\n".join(hero),
+        "heropreload": f"    {preload}",
         "stats": "\n".join(stats),
         "marquee": marquee,
         "chips": "\n".join(chips),
