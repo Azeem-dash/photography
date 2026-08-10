@@ -165,11 +165,21 @@
   const lbImg = $('.lb__img');
   const lbTitle = $('.lb__title');
   const lbCat = $('.lb__cat');
+  const lbCaption = $('.lb__caption');
   const lbDim = $('.lb__dim');
   const lbCount = $('.lb__count');
 
   let idx = 0;
   let lastFocus = null;
+
+  // Every open photo lives in the URL (#photo=<id>), so any frame can be
+  // linked to directly. replaceState keeps the history clean -- paging through
+  // 20 photos should not mean pressing Back 20 times.
+  const setHash = (card) =>
+    history.replaceState(
+      null, '',
+      card ? `#photo=${card.dataset.id}` : location.pathname + location.search
+    );
 
   const load = (card) => {
     const full = card.dataset.full;
@@ -189,6 +199,7 @@
 
     lbTitle.textContent = card.dataset.title || '';
     lbCat.textContent = card.dataset.catLabel || '';
+    lbCaption.textContent = card.dataset.caption || '';
     lbDim.textContent = `${card.dataset.w} × ${card.dataset.h}`;
     lbCount.textContent = `${visible.indexOf(card) + 1} / ${visible.length}`;
   };
@@ -206,6 +217,7 @@
     if (idx < 0) return;
     lastFocus = document.activeElement;
     load(card);
+    setHash(card);
     lb.classList.add('is-open');
     lb.setAttribute('aria-hidden', 'false');
     document.body.classList.add('is-locked');
@@ -217,12 +229,14 @@
     lb.classList.remove('is-open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('is-locked');
+    setHash(null);
     lastFocus?.focus();
   };
 
   const go = (step) => {
     idx = (idx + step + visible.length) % visible.length;
     load(visible[idx]);
+    setHash(visible[idx]);
     prefetch(idx);
   };
 
@@ -237,6 +251,38 @@
   $('.lb__close').addEventListener('click', close);
   $('.lb__nav--prev').addEventListener('click', () => go(-1));
   $('.lb__nav--next').addEventListener('click', () => go(1));
+
+  // copy the current #photo= link to the clipboard
+  const share = $('.lb__share');
+  let shareTimer;
+  const copied = () => {
+    share.classList.add('is-copied');
+    clearTimeout(shareTimer);
+    shareTimer = setTimeout(() => share.classList.remove('is-copied'), 1600);
+  };
+  share?.addEventListener('click', () => {
+    const url = location.href;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(copied).catch(() => {});
+    } else {
+      // pre-13.1 Safari and other stragglers
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      lb.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy') && copied(); } catch {}
+      ta.remove();
+    }
+  });
+
+  // a #photo=<id> link opens that frame directly
+  const deepLink = location.hash.match(/^#photo=([\w-]+)$/);
+  if (deepLink) {
+    const target = cards.find((c) => c.dataset.id === deepLink[1]);
+    if (target) open(target);
+  }
 
   // click the backdrop (but not the photo or the controls) to dismiss
   lb.addEventListener('click', (e) => {

@@ -59,11 +59,13 @@ def card(p, labels, i):
 
     # width/height are the real pixel dimensions -- the browser reserves the
     # correct box before the file arrives, so nothing shifts as images land.
+    caption = f'\n              data-caption="{esc(p["caption"])}"' if p.get("caption") else ""
     return f"""            <figure
               class="card"
+              data-id="{p['id']}"
               data-cat="{p['category']}"
               data-cat-label="{esc(labels[p['category']])}"
-              data-title="{esc(p['title'])}"
+              data-title="{esc(p['title'])}"{caption}
               data-full="{full}"
               data-w="{p['w']}"
               data-h="{p['h']}"

@@ -67,6 +67,10 @@ def avif_quality(width):
 # Categories were assigned by eye from contact sheets of the full library.
 # Anything not listed here is skipped -- that is how the screenshots, text/quote
 # overlays and duplicates stay out of the portfolio.
+#
+# Entries are (category, title) or (category, title, caption). The caption is
+# the place/year line under the title in the lightbox -- only add one when the
+# location is actually known; an absent caption simply shows nothing.
 # ---------------------------------------------------------------------------
 MACRO, GOLDEN, ARCH, NATURE, RIDES, MOUNTAINS, STREET, SACRED = (
     "macro", "golden", "architecture", "nature", "rides", "mountains", "street",
@@ -115,8 +119,8 @@ CURATION = {
 
     # --- architecture & heritage ---
     "1.jpg":   (ARCH,   "Old Campus, Long Shadows"),
-    "34.jpg":  (ARCH,   "Badshahi"),
-    "37.jpg":  (ARCH,   "Fort Walls"),
+    "34.jpg":  (ARCH,   "Badshahi", "Badshahi Mosque, Lahore"),
+    "37.jpg":  (ARCH,   "Fort Walls", "Lahore Fort"),
     "38.jpg":  (ARCH,   "Arches, Reflected"),
     "39.jpg":  (ARCH,   "Dome and Minaret"),
     "45.jpg":  (ARCH,   "Iron Lattice, Violet Sky"),
@@ -160,26 +164,26 @@ CURATION = {
     "77.jpg":  (RIDES,  "Dusk Patrol"),
     "81.jpeg": (RIDES,  "Chrome and Dust"),
     "84.jpg":  (RIDES,  "Loaded Up"),
-    "89.jpg":  (RIDES,  "Pines and Pistons"),
-    "92.jpg":  (RIDES,  "Handlebars to the Pass"),
+    "89.jpg":  (RIDES,  "Pines and Pistons", "Northern Pakistan"),
+    "92.jpg":  (RIDES,  "Handlebars to the Pass", "Northern Pakistan"),
 
     # --- mountains & travel ---
-    "50.jpg":  (MOUNTAINS, "Flag at the Hut"),
-    "68.jpg":  (MOUNTAINS, "Moon Over the Ridge"),
-    "85.jpg":  (MOUNTAINS, "Forest Stalls"),
-    "86.jpg":  (MOUNTAINS, "The Long Way Up"),
-    "87.jpg":  (MOUNTAINS, "Glacial Rubble"),
-    "88.jpg":  (MOUNTAINS, "Through the Deodars"),
-    "90.jpg":  (MOUNTAINS, "Pine Cathedral"),
-    "91.jpg":  (MOUNTAINS, "Tall Timber"),
-    "93.jpg":  (MOUNTAINS, "Where the Road Runs Out"),
-    "94.jpg":  (MOUNTAINS, "The Wooden House"),
-    "96.jpg":  (MOUNTAINS, "Valley Floor"),
-    "97.jpg":  (MOUNTAINS, "Riverbed"),
-    "98.jpg":  (MOUNTAINS, "Rest Stop"),
+    "50.jpg":  (MOUNTAINS, "Flag at the Hut", "Northern Pakistan"),
+    "68.jpg":  (MOUNTAINS, "Moon Over the Ridge", "Northern Pakistan"),
+    "85.jpg":  (MOUNTAINS, "Forest Stalls", "Northern Pakistan"),
+    "86.jpg":  (MOUNTAINS, "The Long Way Up", "Northern Pakistan"),
+    "87.jpg":  (MOUNTAINS, "Glacial Rubble", "Northern Pakistan"),
+    "88.jpg":  (MOUNTAINS, "Through the Deodars", "Northern Pakistan"),
+    "90.jpg":  (MOUNTAINS, "Pine Cathedral", "Northern Pakistan"),
+    "91.jpg":  (MOUNTAINS, "Tall Timber", "Northern Pakistan"),
+    "93.jpg":  (MOUNTAINS, "Where the Road Runs Out", "Northern Pakistan"),
+    "94.jpg":  (MOUNTAINS, "The Wooden House", "Northern Pakistan"),
+    "96.jpg":  (MOUNTAINS, "Valley Floor", "Northern Pakistan"),
+    "97.jpg":  (MOUNTAINS, "Riverbed", "Northern Pakistan"),
+    "98.jpg":  (MOUNTAINS, "Rest Stop", "Northern Pakistan"),
 
     # --- street & city life ---
-    "100.jpg": (STREET, "After the Rain, Mall Road"),
+    "100.jpg": (STREET, "After the Rain, Mall Road", "Mall Road, Lahore"),
     "101.jpg": (STREET, "Two Lamps"),
     "19.jpg":  (STREET, "Rooftops, Heavy Sky"),
     "43.jpg":  (STREET, "Parked on the Gravel"),
@@ -193,18 +197,18 @@ CURATION = {
     "8.jpg":   (STREET, "Open Ground"),
 
     # --- Makkah & Madinah (2026) -- the full-resolution set ---
-    "IMG_0772.jpg": (SACRED, "The Kaaba at Night"),
-    "IMG_0743.jpg": (SACRED, "Al-Haram After Isha"),
-    "IMG_0811.jpg": (SACRED, "The Courtyard, Daylight"),
-    "IMG_0656.jpg": (SACRED, "The Green Dome"),
-    "IMG_0450.jpg": (SACRED, "Held Open"),
+    "IMG_0772.jpg": (SACRED, "The Kaaba at Night", "Masjid al-Haram, Makkah · 2026"),
+    "IMG_0743.jpg": (SACRED, "Al-Haram After Isha", "Masjid al-Haram, Makkah · 2026"),
+    "IMG_0811.jpg": (SACRED, "The Courtyard, Daylight", "Masjid al-Haram, Makkah · 2026"),
+    "IMG_0656.jpg": (SACRED, "The Green Dome", "Al-Masjid an-Nabawi, Madinah · 2026"),
+    "IMG_0450.jpg": (SACRED, "Held Open", "Al-Masjid an-Nabawi, Madinah · 2026"),
 
     # --- old Lahore, same set ---
-    "IMG_8894.jpg": (STREET, "Shah Jahani Dawakhana"),
-    "IMG_8882.jpg": (STREET, "Old City, Early"),
-    "IMG_8878.jpg": (STREET, "Narrow Lane"),
-    "IMG_8905.jpg": (ARCH,   "Behind the Railings"),
-    "IMG_7935.jpg": (ARCH,   "Sandstone and Sky"),
+    "IMG_8894.jpg": (STREET, "Shah Jahani Dawakhana", "Walled City, Lahore · 2026"),
+    "IMG_8882.jpg": (STREET, "Old City, Early", "Walled City, Lahore · 2026"),
+    "IMG_8878.jpg": (STREET, "Narrow Lane", "Walled City, Lahore · 2026"),
+    "IMG_8905.jpg": (ARCH,   "Behind the Railings", "Walled City, Lahore · 2026"),
+    "IMG_7935.jpg": (ARCH,   "Sandstone and Sky", "Lahore · 2026"),
 }
 
 # Portraits used in the About section -- processed, but kept out of the grid.
@@ -347,12 +351,14 @@ def main():
         print(f"!! curated but not found in library/: {', '.join(sorted(missing))}")
 
     photos, trimmed_count = [], 0
-    for fname, (cat, title) in CURATION.items():
+    for fname, entry in CURATION.items():
         if fname not in available:
             continue
+        cat, title, *rest = entry
         rec = process(fname, args.force)
         rec["category"] = cat
         rec["title"] = title
+        rec["caption"] = rest[0] if rest else ""
         trimmed_count += rec.pop("trimmed")
         photos.append(rec)
         print(f"  {fname:<12} {rec['w']}x{rec['h']:<5} -> {len(rec['widths'])} sizes  [{cat}]")
