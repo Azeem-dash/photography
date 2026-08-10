@@ -69,6 +69,38 @@ COLLECTIONS = {
     ),
 }
 
+# Story order for each collection page, id by id -- sequenced by eye from the
+# actual frames (opening hook, rhythm, peak, quiet closer). Positions 1, 6, 11,
+# 16, 21 render full-width solo. Photos missing from a list (e.g. newly added)
+# fall in after the sequenced ones, in manifest order.
+COLLECTION_ORDER = {
+    # watch-dial hook -> tech/jewellery rhythm -> ring-and-minaret peak ->
+    # a rose in a hand to close
+    "macro": ["27", "10", "20", "13", "12", "3", "15", "4", "11", "33", "35"],
+    # rickshaw into the sun -> pastel afternoon -> honey sunset peak ->
+    # ten past sunset -> moonrise into first dark
+    "golden": ["40", "46", "63", "61", "62", "17", "41", "2", "42", "16", "24", "7", "22"],
+    # arrival at the Kaaba -> the haram after Isha -> empty courtyard ->
+    # on to Madinah's Green Dome -> a Qur'an held open, the quiet close
+    "pilgrimage": ["img_0772", "img_0743", "img_0811", "img_0656", "img_0450"],
+    # marigolds by the traffic -> rain-dew macros -> landscape stones as the
+    # solo breathers -> chai pause -> an open hand, then chai in the garden
+    "nature": ["54", "36", "52", "18", "29", "25", "102", "21", "26", "14", "28", "55", "23", "60"],
+    # domes over the bazaar -> Mughal courtyards and gates -> colonial hill
+    # station -> modern stone and glass, Badshahi the full-width peak ->
+    # iron lattice on violet sky to close
+    "architecture": ["83", "38", "37", "img_8905", "39", "79", "69", "95", "1", "76", "img_7935", "75", "71", "72", "80", "34", "51", "99", "66", "82", "45"],
+    # the bike waits -> loaded into the fog -> fuel and pose -> handlebar POV
+    # lands the trip north -> two-up breather -> sunset wind-down to Dusk Patrol
+    "rides": ["64", "84", "73", "58", "92", "57", "89", "70", "59", "81", "77"],
+    # climbing north out of the storm -> the deodar belt -> the valley floor
+    # breaks open -> high-country rest -> road runs out -> flag, then moonrise
+    "mountains": ["86", "88", "85", "91", "90", "96", "98", "87", "94", "97", "93", "50", "68"],
+    # a day in Lahore: walled city waking -> bazaar colour -> midday games ->
+    # heavy-sky crescendo -> rain-washed Mall Road -> two lamps against night
+    "street": ["img_8882", "img_8878", "74", "img_8894", "6", "56", "43", "67", "53", "8", "19", "100", "47", "48", "101"],
+}
+
 # Frames good enough to carry a full-bleed hero, chosen by eye. The order
 # matters: the first slide is the site's first impression, so it must be a
 # bright frame that shows the photography instantly -- never a night shot.
@@ -299,6 +331,8 @@ def collection_page(m, cid, num, labels):
     """A full standalone page for one collection, sharing the site's CSS/JS."""
     label = labels[cid]
     photos = [p for p in m["photos"] if p["category"] == cid]
+    order = COLLECTION_ORDER.get(cid, [])
+    photos.sort(key=lambda p: order.index(p["id"]) if p["id"] in order else len(order))
     intro = COLLECTIONS.get(cid, "")
     cover = photos[0]
     og = f"{SITE}/{GAL}/{cover['id']}-{cover['fallback']}.jpg"
